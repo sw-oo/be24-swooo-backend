@@ -5,7 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.be24swooobackend.upload.model.Upload;
 import org.example.be24swooobackend.user.model.User;
+
+import java.util.List;
 
 @Entity
 @Getter @Builder
@@ -19,4 +22,7 @@ public class Feed {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_idx")
     private User user;
+
+    @OneToMany(mappedBy = "feed")
+    private List<Upload> uploadList;
 }
