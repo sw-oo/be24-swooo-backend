@@ -1,6 +1,15 @@
 spring:
   application:
     name: be24-swooo-backend
+  cloud:
+    aws:
+      credentials:
+        access-key: ${AWS_ACCESS_KEY}
+        secret-key: ${AWS_SECRET_KEY}
+      s3:
+        bucket: be24-swoo-s3
+      region:
+        static: ap-northeast-2
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: ${DB_URL}
